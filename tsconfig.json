@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // 각각의 소스 파일마다 .map 파일 생성
+    "sourceMap": true,
+    "noImplicitAny": true,
+    // Javascript Module Import/Export 방법
+    "module": "es6",
+    // 소스 코드에서 사용 가능한 ECMAScript 버전
+    "target": "es5",
+    "jsx": "react",
+    // Plain Javascript 소스 코드도 컴파일 가능
+    "allowJs": false,
+    // export default 가 아닌 모듈도 default 모듈로 import 가능
+    "allowSyntheticDefaultImports": true
+  }
+}
