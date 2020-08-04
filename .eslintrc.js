@@ -8,6 +8,7 @@ module.exports = {
       jsx: true, // Allows for the parsing of JSX
     },
   },
+  ignorePatterns: ['webpack.config.babel.js'],
   settings: {
     react: {
       version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
@@ -22,5 +23,26 @@ module.exports = {
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        trailingComma: 'all',
+      },
+    ],
+    'react/prop-types': [
+      1,
+      {
+        ignore: ['context', 'tracking'],
+      },
+    ],
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+      },
+    },
+  ],
 };

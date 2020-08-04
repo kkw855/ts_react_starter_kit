@@ -1,8 +1,10 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import * as React from 'react';
+import { render } from 'react-dom';
+import App from './App';
 
-export type Props = { text: string };
+const root = document.createElement('div');
+document.body.appendChild(root);
 
-const App = <div>Hello World</div>;
-
-ReactDOM.render(App, document.getElementById('root'));
+render(<App />, root);
