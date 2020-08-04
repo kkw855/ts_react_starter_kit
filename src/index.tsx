@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom"
-import React, {Component} from "react";
+import React from "react";
 
 export type Props = { text: string };
 
