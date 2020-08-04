@@ -8,16 +8,6 @@
     "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "husky": {
-        "hooks": {
-             "pre-commit": "lint-staged"
-         }
-  },
- "lint-staged": {
-     "*.{js,ts,tsx}": [
-           "eslint --fix"
-     ]
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
