@@ -1,0 +1,1 @@
+Webpack + TypeScript + Babel + ESLint + Prettier + React + React-Hot-Module
