@@ -7,12 +7,13 @@
     // Javascript Module Import/Export 방법
     "module": "commonjs",
     // 소스 코드에서 사용 가능한 ECMAScript 버전
-    "target": "es6",
+    "target": "es2020",
     "jsx": "react",
     // Plain Javascript 소스 코드도 컴파일 가능
     "allowJs": false,
     // export default 가 아닌 모듈도 default 모듈로 import 가능
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true
   },
   "include": [
     "./src/**/*"

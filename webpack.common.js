@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -16,10 +15,11 @@ module.exports = {
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
+  plugins: [new ForkTsCheckerWebpackPlugin(), new HtmlWebpackPlugin()],
   module: {
     rules: [
       {
-        test: /\.(j|t)s(x)?$/,
+        test: /\.([jt])s(x)?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -45,6 +45,4 @@ module.exports = {
       },
     ],
   },
-  devtool: 'eval-source-map',
-  plugins: [new ForkTsCheckerWebpackPlugin(), new webpack.NamedModulesPlugin(), new HtmlWebpackPlugin()],
 };
