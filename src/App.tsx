@@ -1,12 +1,11 @@
 import { hot } from 'react-hot-loader/root';
-import * as React from 'react';
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import Counter from './Counter';
 
 function App(): ReactElement {
   return (
     <div>
-      <h1>Hello, world.</h1>
+      <h1>고장난 시계</h1>
       <Counter />
     </div>
   );

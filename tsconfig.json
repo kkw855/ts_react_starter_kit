@@ -1,25 +1,30 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./aaa/",
     // 각각의 소스 파일마다 .map 파일 생성
     "sourceMap": true,
+    // 코드 실행 환경에서 이용할 수 있다고 가정하는 API
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "noImplicitAny": true,
-    // Javascript Module Import/Export 방법
-    "module": "commonjs",
-    // 소스 코드에서 사용 가능한 ECMAScript 버전
-    "target": "es2020",
-    "jsx": "react",
-    // Plain Javascript 소스 코드도 컴파일 가능
-    "allowJs": false,
-    // export default 가 아닌 모듈도 default 모듈로 import 가능
-    "allowSyntheticDefaultImports": true,
-    "strictNullChecks": true
+    // Javascript Module Import/Export 방법. 동적 임포트를 사용하려면 'esnext' 로 설정해야 함.
+    "module": "esnext",
+    "moduleResolution": "Node",
+    // 와일드카드(*) 임포트를 사용하지 않고도 React 를 임포트할 수 있도록
+    "esModuleInterop": true,
+    // 생성할 Javascript 파일의 버전
+    "target": "esnext",
+    "jsx": "preserve",
+    "strict": true,
+    "noEmit": true
   },
   "exclude": [
     "node_modules"
   ],
+  // 타입스크립트 파일을 찾을 디렉터리
   "include": [
-    "**/*.ts",
-    "**/*.tsx"
+    "src"
   ]
 }

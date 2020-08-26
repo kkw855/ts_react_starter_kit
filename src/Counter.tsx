@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 class Counter extends React.Component<{}, { count: number }> {
-  interval: number;
+  interval = 0;
 
   constructor(props: any) {
     super(props);
