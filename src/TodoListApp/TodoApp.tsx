@@ -28,18 +28,15 @@ function TodoApp(): ReactElement {
 
   const nextId = useRef(4);
 
-  const onInsert = useCallback(
-    (text: string) => {
-      const todo = {
-        id: nextId.current,
-        text,
-        checked: false,
-      };
-      setTodos(todos.concat(todo));
-      nextId.current += 1;
-    },
-    [todos],
-  );
+  const onInsert = useCallback((text: string) => {
+    const todo = {
+      id: nextId.current,
+      text,
+      checked: false,
+    };
+    setTodos((todos) => todos.concat(todo));
+    nextId.current += 1;
+  }, []);
 
   const onRemove = useCallback((id: number) => {
     setTodos((todos) => todos.filter((todo) => todo.id !== id));

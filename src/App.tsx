@@ -1,9 +1,9 @@
 import { hot } from 'react-hot-loader/root';
 import React, { ReactElement } from 'react';
-import TodoApp from './TodoListApp/TodoApp';
+import ImmerApp from './Immer/ImmerApp';
 
 function App(): ReactElement {
-  return <TodoApp />;
+  return <ImmerApp />;
 }
 
 export default hot(App);
