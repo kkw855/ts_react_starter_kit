@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
-import { Link, Route, NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import Profile from './Profile';
-import WithRouterSample from './WithRouterSample';
 
 function Profiles(): ReactElement {
   const activeStyle = {
