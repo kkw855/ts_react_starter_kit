@@ -36,10 +36,12 @@ module.exports = {
         ignore: ['context', 'tracking'],
       },
     ],
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
+
       rules: {
         'react/prop-types': 'off',
       },
