@@ -11,10 +11,16 @@ import logger from 'redux-logger';
 import rootReducer from '../modules';
 import App from './App';
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(ReduxThunk, logger)),
-);
+// let store = null;
+let middlewares;
+
+if (process.env.NODE_ENV === 'development') {
+  middlewares = composeWithDevTools(applyMiddleware(ReduxThunk, logger));
+} else {
+  middlewares = applyMiddleware(ReduxThunk);
+}
+
+const store = createStore(rootReducer, middlewares);
 
 const root = document.querySelector('#root');
 

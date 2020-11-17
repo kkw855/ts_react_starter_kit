@@ -22,6 +22,12 @@ const posts = [
   },
 ];
 
+export type Post = {
+  id: number;
+  title: string;
+  body: string;
+};
+
 // 포스트 목록을 가져오는 비동기 함수
 export const getPosts = async () => {
   await sleep(500); // 0.5초 쉬고
