@@ -101,6 +101,45 @@ import CounterContainer from './components/Counter/CounterContainer';
 // development or production
 console.log(process.env.NODE_ENV);
 
+// undefined, null 는 항상 false
+const undef = undefined;
+const nullable = null;
+
+if (undef) {
+  console.log('undefined === true');
+} else {
+  console.log('undefined === false');
+}
+if (nullable) {
+  console.log('nullable === true');
+} else {
+  console.log('nullable === false');
+}
+undef ? console.log('undefined === true') : console.log('undefined === false');
+nullable ? console.log('nullable === true') : console.log('nullable === false');
+
+// 문자열 길이 0 은 false 1 이상은 true
+const zero = '';
+if (zero) {
+  console.log('zero === true');
+} else {
+  console.log('zero === false');
+}
+
+// 객체 key, value pair 를 동적으로 사용
+const reactionEmoji = {
+  thumbsUp: '👍',
+  rocket: '🚀',
+};
+
+const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
+  return (
+    <button key={name}>
+      {name} {emoji}
+    </button>
+  );
+});
+
 function increaseAndPrint(n: number): Promise<number> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -145,6 +184,7 @@ function App(): ReactElement {
 
   return (
     <div>
+      {reactionButtons}
       {/*<ul>*/}
       {/*  <li>*/}
       {/*    <NavLink activeStyle={activeStyle} to="/" exact>*/}
