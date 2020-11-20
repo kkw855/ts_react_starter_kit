@@ -9,6 +9,8 @@ import rootReducer from '../modules';
 import { decrease, increase } from '../modules/counter';
 import { addTodo, toggleTodo } from '../modules/todos';
 import CounterContainer from './components/Counter/CounterContainer';
+import DraftPlainText from './RichTextEditor/DraftPlainText';
+import DraftRich from './RichTextEditor/DraftRich';
 
 // const initialState = {
 //   counter: 0,
@@ -184,7 +186,7 @@ function App(): ReactElement {
 
   return (
     <div>
-      {reactionButtons}
+      {/*{reactionButtons}*/}
       {/*<ul>*/}
       {/*  <li>*/}
       {/*    <NavLink activeStyle={activeStyle} to="/" exact>*/}
@@ -208,6 +210,8 @@ function App(): ReactElement {
       {/*  </li>*/}
       {/*</ul>*/}
       <Switch>
+        <Route path="/plain" component={DraftPlainText} />
+        <Route path="/draft/rich" component={DraftRich} />
         <Route path="/todos" component={CounterContainer} />
         <Route path="/todo" component={TodoApp} />
         <Route path="/immer" component={ImmerApp} />
