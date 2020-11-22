@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Editor, EditorState, DraftEditorCommand, RichUtils } from 'draft-js';
+import { DraftEditorCommand, Editor, EditorState, RichUtils } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 
 const DraftPlainText: React.FC = () => {
@@ -66,13 +66,12 @@ const DraftPlainText: React.FC = () => {
         <Editor
           editorState={editorState}
           onChange={onChange}
-          handleKeyCommand={handleKeyCommand}
+          // handleKeyCommand={handleKeyCommand}
           placeholder="Enter some text..."
           ref={editorRef}
         />
       </div>
       <input
-        // onClick={this.logState}
         style={styles.button}
         type="button"
         value="Log State"

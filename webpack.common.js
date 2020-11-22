@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-console.log('웹팩 Common');
 module.exports = {
   entry: ['./src/index'],
   output: {
@@ -46,10 +45,19 @@ module.exports = {
           'style-loader',
           // Translates CSS into CommonJS
           'css-loader',
+          'resolve-url-loader',
           // Compiles Sass to CSS
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg|jfif|woff|woff2|ttf|eot)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      }
     ],
   },
 };

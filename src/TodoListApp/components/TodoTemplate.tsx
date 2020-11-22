@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import './TodoTemplate.scss';
 
 const TodoTemplate: React.FC = ({ children }) => {

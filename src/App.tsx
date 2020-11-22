@@ -1,104 +1,18 @@
 import { hot } from 'react-hot-loader/root';
 import React, { ReactElement } from 'react';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { format, parseISO } from 'date-fns';
 import TodoApp from './TodoListApp/TodoApp';
 import ImmerApp from './Immer/ImmerApp';
 import NewsList from './News/NewsList';
-import { createStore } from 'redux';
-import rootReducer from '../modules';
-import { decrease, increase } from '../modules/counter';
-import { addTodo, toggleTodo } from '../modules/todos';
-import CounterContainer from './components/Counter/CounterContainer';
+import CounterContainer from './Counter/CounterContainer';
 import DraftPlainText from './RichTextEditor/DraftPlainText';
 import DraftRich from './RichTextEditor/DraftRich';
 
-// const initialState = {
-//   counter: 0,
-//   text: '',
-//   list: [] as { id: number; text: string }[],
-// };
-//
-// const INCREASE = 'INCREASE' as const;
-// const DECREASE = 'DECREASE' as const;
-// const CHANGE_TEXT = 'CHANGE_TEXT' as const;
-// const ADD_TO_LIST = 'ADD_TO_LIST' as const;
-//
-// const increase = () => ({
-//   type: INCREASE,
-// });
-//
-// const decrease = () => ({
-//   type: DECREASE,
-// });
-//
-// const changeText = (text: string) => ({
-//   type: CHANGE_TEXT,
-//   text,
-// });
-//
-// const addToList = (item: { id: number; text: string }) => ({
-//   type: ADD_TO_LIST,
-//   item,
-// });
-//
-// type ActionType =
-//   | ReturnType<typeof increase>
-//   | ReturnType<typeof decrease>
-//   | ReturnType<typeof changeText>
-//   | ReturnType<typeof addToList>;
-//
-// const reducer = (state = initialState, action: ActionType) => {
-//   switch (action.type) {
-//     case INCREASE:
-//       return {
-//         ...state,
-//         counter: state.counter + 1,
-//       };
-//     case DECREASE:
-//       return {
-//         ...state,
-//         counter: state.counter - 1,
-//       };
-//     case CHANGE_TEXT:
-//       return {
-//         ...state,
-//         text: action.text,
-//       };
-//     case ADD_TO_LIST:
-//       return {
-//         ...state,
-//         list: state.list.concat(action.item),
-//       };
-//     default:
-//       return state;
-//   }
-// };
-
-// const store = createStore(reducer);
-//
-// console.log(store);
-
-// store.subscribe(() => {
-//   const state = store.getState();
-//   console.log(state);
-// });
-//
-// store.dispatch(increase());
-// store.dispatch(decrease());
-// store.dispatch(changeText('안녕하세요'));
-// store.dispatch(addToList({ id: 1, text: '와우' }));
-
-// const store = createStore(rootReducer);
-//
-// store.subscribe(() => {
-//   const state = store.getState();
-//   console.log(state);
-// });
-//
-// store.dispatch(increase());
-// store.dispatch(decrease());
-// store.dispatch(addTodo('와우'));
-// store.dispatch(toggleTodo(1));
+// Reset Default HTML CSS
+import 'normalize.css/normalize.css';
+import Links from './Pages/Links';
+import Tables from './Pages/Tables';
 
 // development or production
 console.log(process.env.NODE_ENV);
@@ -141,6 +55,12 @@ const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
     </button>
   );
 });
+
+// 날짜
+const date = parseISO('2020-11-20T00:57:15.103');
+const str = format(date, 'yyyy-MM-dd');
+console.log(date);
+console.log(str);
 
 function increaseAndPrint(n: number): Promise<number> {
   return new Promise((resolve, reject) => {
@@ -210,8 +130,10 @@ function App(): ReactElement {
       {/*  </li>*/}
       {/*</ul>*/}
       <Switch>
+        <Route path="/links" component={Links} />
+        <Route path="/tables" component={Tables} />
         <Route path="/plain" component={DraftPlainText} />
-        <Route path="/draft/rich" component={DraftRich} />
+        <Route path="/rich" component={DraftRich} />
         <Route path="/todos" component={CounterContainer} />
         <Route path="/todo" component={TodoApp} />
         <Route path="/immer" component={ImmerApp} />

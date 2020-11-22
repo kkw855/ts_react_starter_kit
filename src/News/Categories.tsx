@@ -60,7 +60,7 @@ const Category = styled(NavLink)`
     font-weight: 600;
     border-bottom: 2px solid #22b8cf;
     color: #22b8cf;
-    $:hover {
+    &:hover {
       color: #3bc9db;
     }
   }
