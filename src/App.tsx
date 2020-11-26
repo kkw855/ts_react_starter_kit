@@ -13,6 +13,8 @@ import DraftRich from './RichTextEditor/DraftRich';
 import 'normalize.css/normalize.css';
 import Links from './Pages/Links';
 import Tables from './Pages/Tables';
+import TopNavBar from './ExComponents/Nav/TopNavBar';
+import BasicDropdownPage from './Pages/Dropdown/BasicDropdownPage';
 
 // development or production
 console.log(process.env.NODE_ENV);
@@ -130,6 +132,7 @@ function App(): ReactElement {
       {/*  </li>*/}
       {/*</ul>*/}
       <Switch>
+        <Route path="/dropdown" component={BasicDropdownPage} />
         <Route path="/links" component={Links} />
         <Route path="/tables" component={Tables} />
         <Route path="/plain" component={DraftPlainText} />
