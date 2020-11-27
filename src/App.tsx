@@ -132,6 +132,7 @@ function App(): ReactElement {
       {/*  </li>*/}
       {/*</ul>*/}
       <Switch>
+        <Route path="/topNav" component={TopNavBar} />
         <Route path="/dropdown" component={BasicDropdownPage} />
         <Route path="/links" component={Links} />
         <Route path="/tables" component={Tables} />

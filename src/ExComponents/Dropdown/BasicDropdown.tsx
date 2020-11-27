@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faExclamationCircle,
+  faWindowClose,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Basic1 = styled.div`
   .dropdown {
@@ -43,6 +49,23 @@ const Basic1 = styled.div`
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  .btn {
+    border: none;
+    color: RoyalBlue;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 12px 16px;
+    font-size: 16px;
+    &:hover {
+      color: #fff;
+      background-color: RoyalBlue;
+    }
+  }
+
+  .btn-round {
+    border-radius: 50%;
+  }
 `;
 
 const BasicDropdown = () => {
@@ -59,6 +82,18 @@ const BasicDropdown = () => {
       <div>
         <span>Overlay it by dropdown content</span>
       </div>
+      <button className="btn">
+        <FontAwesomeIcon icon={faWindowClose} />
+      </button>
+      <button className="btn" style={{ marginLeft: 4 }}>
+        <FontAwesomeIcon icon={faWindowClose} /> 닫기
+      </button>
+      <button className="btn btn-round" style={{ marginLeft: 4 }}>
+        <FontAwesomeIcon icon={faTrash} />
+      </button>
+      <button className="btn" style={{ marginLeft: 4 }}>
+        <FontAwesomeIcon icon={faExclamationCircle} />
+      </button>
     </Basic1>
   );
 };
