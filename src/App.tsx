@@ -11,10 +11,10 @@ import DraftRich from './RichTextEditor/DraftRich';
 
 // Reset Default HTML CSS
 import 'normalize.css/normalize.css';
-import Links from './Pages/Links';
-import Tables from './Pages/Tables';
+import Links from './Components/Dropdown/Links';
+import Tables from './Components/Dropdown/Tables';
 import TopNavBar from './ExComponents/Nav/TopNavBar';
-import BasicDropdownPage from './Pages/Dropdown/BasicDropdownPage';
+import Tweet from './Pages/Layout/Tweet';
 
 // development or production
 console.log(process.env.NODE_ENV);
@@ -132,8 +132,9 @@ function App(): ReactElement {
       {/*  </li>*/}
       {/*</ul>*/}
       <Switch>
+        <Route path="/tweet" component={Tweet} />
+
         <Route path="/topNav" component={TopNavBar} />
-        <Route path="/dropdown" component={BasicDropdownPage} />
         <Route path="/links" component={Links} />
         <Route path="/tables" component={Tables} />
         <Route path="/plain" component={DraftPlainText} />

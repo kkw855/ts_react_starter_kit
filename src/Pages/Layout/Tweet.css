@@ -1,0 +1,21 @@
+.tweet {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  margin-right: 10px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.author-meta {
+}
+.actions {
+  display: flex;
+  padding: 0;
+}
+.actions li {
+  list-style: none;
+}

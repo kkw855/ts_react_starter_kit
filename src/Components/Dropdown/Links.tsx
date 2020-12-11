@@ -1,5 +1,5 @@
 import React from 'react';
-import smileyImage from '../../assets/images/smiley.gif';
+import smileyImage from '../../../assets/images/smiley.gif';
 
 const Links: React.FC = () => {
   return (
