@@ -1,26 +1,43 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import React from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { applyMiddleware, createStore } from 'redux';
-import { Provider } from 'react-redux';
-import ReduxThunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import {render} from 'react-dom';
+import {BrowserRouter} from 'react-router-dom';
+import {applyMiddleware, createStore} from 'redux';
+import {Provider} from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import logger from 'redux-logger';
-import rootReducer from '../modules';
+// import rootReducer from '../modules';
 import App from './App';
+import rootSaga from './Redux/sagas';
 
-// let store = null;
+const sagaMiddleware = createSagaMiddleware();
+
 let middlewares;
 
 if (process.env.NODE_ENV === 'development') {
-  middlewares = composeWithDevTools(applyMiddleware(ReduxThunk, logger));
+  middlewares = composeWithDevTools(applyMiddleware(sagaMiddleware, logger));
 } else {
-  middlewares = applyMiddleware(ReduxThunk);
+  middlewares = applyMiddleware(sagaMiddleware);
 }
 
-const store = createStore(rootReducer, middlewares);
+function counter(state = 0, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    default:
+      return state
+  }
+}
+
+const store = createStore(, middlewares);
+
+sagaMiddleware.run(rootSaga);
+
+const action = (type: string) => store.dispatch({ type });
 
 const root = document.querySelector('#root');
 

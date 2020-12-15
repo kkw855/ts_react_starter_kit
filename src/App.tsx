@@ -15,6 +15,7 @@ import Links from './Components/Dropdown/Links';
 import Tables from './Components/Dropdown/Tables';
 import TopNavBar from './ExComponents/Nav/TopNavBar';
 import Tweet from './Pages/Layout/Tweet';
+import Saga from './Pages/Saga/Saga';
 
 // development or production
 console.log(process.env.NODE_ENV);
@@ -132,6 +133,7 @@ function App(): ReactElement {
       {/*  </li>*/}
       {/*</ul>*/}
       <Switch>
+        <Route path="/saga" component={Saga} />
         <Route path="/tweet" component={Tweet} />
 
         <Route path="/topNav" component={TopNavBar} />
