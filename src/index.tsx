@@ -1,5 +1,8 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+// Only for development mode
+import './wdyr';
+
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';

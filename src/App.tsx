@@ -17,6 +17,7 @@ import TopNavBar from './ExComponents/Nav/TopNavBar';
 import Tweet from './Pages/Layout/Tweet';
 import BarChart from './d3/BarChart';
 import Treemap from './d3/Treemap';
+import ModalPage1 from './Pages/Modal/ModalPage1';
 
 // development or production
 console.log(process.env.NODE_ENV);
@@ -134,6 +135,7 @@ function App(): ReactElement {
       {/*  </li>*/}
       {/*</ul>*/}
       <Switch>
+        <Route path="/modal" component={ModalPage1} />
         <Route path="/barChart" component={BarChart} />
         <Route path="/treemap" component={Treemap} />
         <Route path="/tweet" component={Tweet} />
