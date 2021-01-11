@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import Modal1 from '../../components/Modal/Modal1';
 
 const Width: React.FC<{ children: (width: number) => JSX.Element | null }> = ({

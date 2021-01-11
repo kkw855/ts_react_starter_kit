@@ -1,7 +1,9 @@
 import React, { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import { createPortal } from 'react-dom';
-import { useSelector } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
+
+const TRANSITION_CLASS_NAME = 'modal-transition';
 
 const StyledModal = styled.div`
   .overlay {
@@ -15,7 +17,6 @@ const StyledModal = styled.div`
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.7);
-    border: 3px solid #73ad21;
   }
   .modal {
     position: relative;
@@ -39,6 +40,41 @@ const StyledModal = styled.div`
     border-radius: 4px;
     background-color: white;
   }
+  .${TRANSITION_CLASS_NAME} .overlay {
+    opacity: 0;
+  }
+  .${TRANSITION_CLASS_NAME}-enter-active .overlay {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .${TRANSITION_CLASS_NAME}-exit-active .overlay {
+    opacity: 1;
+  }
+  .${TRANSITION_CLASS_NAME}-exit-active .overlay {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  &.${TRANSITION_CLASS_NAME}-enter .modal {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  &.${TRANSITION_CLASS_NAME}-enter-active .modal {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  &.${TRANSITION_CLASS_NAME}-exit .modal {
+    opacity: 1;
+  }
+
+  &.${TRANSITION_CLASS_NAME}-exit-active .modal {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+  }
 `;
 
 type Props = {
@@ -49,27 +85,35 @@ const Modal1: React.FC<Props> = ({ activator, children }) => {
   const [show, setShow] = useState(false);
 
   const content = show && (
-    <StyledModal>
-      <div className="overlay">
-        <div className="modal">
-          <button
-            className="modal-close"
-            type="button"
-            onClick={() => setShow(false)}
-          >
-            X
-          </button>
-          <div className="modal-body">{children}</div>
-        </div>
+    <div className="overlay">
+      <div className="modal">
+        <button
+          className="modal-close"
+          type="button"
+          onClick={() => setShow(false)}
+        >
+          X
+        </button>
+        <div className="modal-body">{children}</div>
       </div>
-    </StyledModal>
+    </div>
   );
 
   return (
-    <>
+    <StyledModal>
       {activator(setShow)}
-      {createPortal(content, document.body)}
-    </>
+      {createPortal(
+        <CSSTransition
+          in={show}
+          timeout={300}
+          classNames={TRANSITION_CLASS_NAME}
+          unmountOnExit
+        >
+          {() => <StyledModal>{content}</StyledModal>}
+        </CSSTransition>,
+        document.body,
+      )}
+    </StyledModal>
   );
 };
 

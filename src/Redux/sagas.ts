@@ -1,4 +1,4 @@
-import { all, put, takeEvery, delay } from 'redux-saga/effects';
+import { all, delay, put, takeEvery } from 'redux-saga/effects';
 
 export function* helloSaga() {
   console.log('Hello Sagas!');

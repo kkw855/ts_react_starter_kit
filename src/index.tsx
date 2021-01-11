@@ -6,15 +6,12 @@ import './wdyr';
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { applyMiddleware, createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 // import rootReducer from '../modules';
 import App from './App';
-import rootSaga from './Redux/sagas';
-import rootReducer from '../modules';
 
 const sagaMiddleware = createSagaMiddleware();
 

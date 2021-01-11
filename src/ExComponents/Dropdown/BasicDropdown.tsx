@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faExclamationCircle,
-  faWindowClose,
   faTrash,
+  faWindowClose,
 } from '@fortawesome/free-solid-svg-icons';
 
 const Basic1 = styled.div`
