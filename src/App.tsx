@@ -19,6 +19,7 @@ import BarChart from './d3/BarChart';
 import Treemap from './d3/Treemap';
 import ModalPage1 from './Pages/Modal/ModalPage1';
 import TransitionPage1 from './Pages/Transition/TransitionPage1';
+import React_Table1_Page from './Pages/Table/React_Table1_Page';
 
 // development or production
 console.log(process.env.NODE_ENV);
@@ -136,6 +137,7 @@ function App(): ReactElement {
       {/*  </li>*/}
       {/*</ul>*/}
       <Switch>
+        <Route path="/table1" component={React_Table1_Page} />
         <Route path="/transition1" component={TransitionPage1} />
         <Route path="/modal1" component={ModalPage1} />
         <Route path="/barChart" component={BarChart} />
