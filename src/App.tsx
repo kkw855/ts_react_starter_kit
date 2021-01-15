@@ -20,6 +20,7 @@ import Treemap from './d3/Treemap';
 import ModalPage1 from './Pages/Modal/ModalPage1';
 import TransitionPage1 from './Pages/Transition/TransitionPage1';
 import React_Table1_Page from './Pages/Table/React_Table1_Page';
+import Flex1 from './Pages/Layout/Flex1';
 
 // development or production
 console.log(process.env.NODE_ENV);
@@ -112,58 +113,34 @@ function App(): ReactElement {
   };
 
   return (
-    <div>
-      {/*{reactionButtons}*/}
-      {/*<ul>*/}
-      {/*  <li>*/}
-      {/*    <NavLink activeStyle={activeStyle} to="/" exact>*/}
-      {/*      홈*/}
-      {/*    </NavLink>*/}
-      {/*  </li>*/}
-      {/*  <li>*/}
-      {/*    <NavLink activeStyle={activeStyle} to="/todo">*/}
-      {/*      할 일 목록*/}
-      {/*    </NavLink>*/}
-      {/*  </li>*/}
-      {/*  <li>*/}
-      {/*    <NavLink activeStyle={activeStyle} to="/immer">*/}
-      {/*      immer 예제*/}
-      {/*    </NavLink>*/}
-      {/*  </li>*/}
-      {/*  <li>*/}
-      {/*    <NavLink activeStyle={activeStyle} to="/news">*/}
-      {/*      News 예제*/}
-      {/*    </NavLink>*/}
-      {/*  </li>*/}
-      {/*</ul>*/}
-      <Switch>
-        <Route path="/table1" component={React_Table1_Page} />
-        <Route path="/transition1" component={TransitionPage1} />
-        <Route path="/modal1" component={ModalPage1} />
-        <Route path="/barChart" component={BarChart} />
-        <Route path="/treemap" component={Treemap} />
-        <Route path="/tweet" component={Tweet} />
+    <Switch>
+      <Route path="/flex1" component={Flex1} />
+      <Route path="/table1" component={React_Table1_Page} />
+      <Route path="/transition1" component={TransitionPage1} />
+      <Route path="/modal1" component={ModalPage1} />
+      <Route path="/barChart" component={BarChart} />
+      <Route path="/treemap" component={Treemap} />
+      <Route path="/tweet" component={Tweet} />
 
-        <Route path="/topNav" component={TopNavBar} />
-        <Route path="/links" component={Links} />
-        <Route path="/tables" component={Tables} />
-        <Route path="/plain" component={DraftPlainText} />
-        <Route path="/rich" component={DraftRich} />
-        <Route path="/todos" component={CounterContainer} />
-        <Route path="/todo" component={TodoApp} />
-        <Route path="/immer" component={ImmerApp} />
-        <Route path="/news/:category?" component={NewsList} />
-        <Route
-          // path 를 따로 정의하지 않으면 모든 상황에 렌더링 됨
-          render={({ location }) => (
-            <div>
-              <h2>이 페이지는 존재하지 않습니다:</h2>
-              <p>{location.pathname}</p>
-            </div>
-          )}
-        />
-      </Switch>
-    </div>
+      <Route path="/topNav" component={TopNavBar} />
+      <Route path="/links" component={Links} />
+      <Route path="/tables" component={Tables} />
+      <Route path="/plain" component={DraftPlainText} />
+      <Route path="/rich" component={DraftRich} />
+      <Route path="/todos" component={CounterContainer} />
+      <Route path="/todo" component={TodoApp} />
+      <Route path="/immer" component={ImmerApp} />
+      <Route path="/news/:category?" component={NewsList} />
+      <Route
+        // path 를 따로 정의하지 않으면 모든 상황에 렌더링 됨
+        render={({ location }) => (
+          <div>
+            <h2>이 페이지는 존재하지 않습니다:</h2>
+            <p>{location.pathname}</p>
+          </div>
+        )}
+      />
+    </Switch>
   );
 }
 
