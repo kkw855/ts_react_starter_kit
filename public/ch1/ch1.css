@@ -1,3 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1rem 0.5rem;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  /* 980px */
+  max-width: 60rem;
+  margin: 0 auto;
+  color: #333;
+}
+
 img {
   max-width: 100%;
 }
