@@ -2,30 +2,36 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
+    <title>Our first responsive web page with HTML5 and CSS3 (amended with HTML5 elements)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our first responsive web page with HTML5 and CSS3</title>
-    <meta name="description" content="A basic responsive web page - an example from Chapter 1">
+    <meta name="description" content="A basic responsive web page – amended markup to HTML5">
     <link rel="stylesheet" href="ch1.css" />
   </head>
   <body>
-    <div class="Header">
-      <a href="/" class="LogoWrapper">
-        <img src="SOC-Logo.png" alt="Scone 0'Clock logo" />
-      </a>
-      <p class="Strap">Scones: the most resplendent of snacks</p>
-    </div>
-    <div class="IntroWrapper">
-      <p class="IntroText">Occasionally maligned and misunderstood: the scone is a  quintessentially British classic.</p>
-      <div class="MoneyShot">
-        <img class="MoneyShotImg" src="scones.jpg" alt="Incredible scones" />
-        <p class="ImageCaption">
-          Incredible scones, picture from Wikipedia
-        </p>
-      </div>
+    <article>
+      <!-- 소개 or 도입-->
+      <header class="Header">
+        <a href="/" class="LogoWrapper">
+          <img src="SOC-Logo.png" alt="Scone 0'Clock logo" />
+        </a>
+        <p class="Strap">Scones: the most resplendent of snacks</p>
+      </header>
+
+      <section class="IntroWrapper">
+        <p class="IntroText">Occasionally maligned and misunderstood: the scone is a  quintessentially British classic.</p>
+        <figure class="MoneyShot">
+          <img class="MoneyShotImg" src="scones.jpg" alt="Incredible scones" />
+          <figcaption class="ImageCaption">
+            Incredible scones, picture from Wikipedia
+          </figcaption>
+        </figure>
+      </section>
+
       <p>
         Recipe and serving suggestions follow.
       </p>
-      <div class="Ingredients">
+
+      <section class="Ingredients">
         <h3 class="SubHeader">Ingredients</h3>
         <ul>
           <li>350g self-raising flour, and a little spare for dusting</li>
@@ -39,8 +45,9 @@
           <li>beaten egg, to glaze</li>
           <li>jam and clotted cream, to serve</li>
         </ul>
-      </div>
-      <div class="HowToMake">
+      </section>
+
+      <section class="HowToMake">
         <h3 class="SubHeader">Method</h3>
         <ol class="MethodWrapper">
           <li>
@@ -68,7 +75,11 @@
           </li>
           <li>If freezing, freeze once cool. Defrost, then put in a low oven (about 160&deg;C) for a few minutes to refresh.</li>
         </ol>
-      </div>
-    </div>
+      </section>
+
+      <footer>
+        Made for the book, <a href="http://rwd.education">'Resonsive web design with HTML5 and CSS3'</a> by <address><a href="http://benfrain">Ben Frain</a></address>
+      </footer>
+    </article>
   </body>
 </html>
