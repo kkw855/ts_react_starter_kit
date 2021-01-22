@@ -1,9 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DraftEditorCommand, Editor, EditorState, RichUtils } from 'draft-js';
+import {
+  DraftEditorCommand,
+  Editor,
+  EditorState,
+  RichUtils,
+  RawDraftContentState,
+} from 'draft-js';
+import Draft from 'draft-js';
 import 'draft-js/dist/Draft.css';
 
+const html = '<p>Hey this <strong>editor</strong> rocks</p>';
+
 const DraftPlainText: React.FC = () => {
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [editorState, setEditorState] = useState(
+    EditorState.createWithContent(Draft.ContentState.createFromText(html)),
+  );
+  // const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const editorRef = useRef<Editor>(null);
   const onChange = (editorState: EditorState) => {
     setEditorState(editorState);

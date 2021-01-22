@@ -21,6 +21,7 @@ import ModalPage1 from './Pages/Modal/ModalPage1';
 import TransitionPage1 from './Pages/Transition/TransitionPage1';
 import React_Table1_Page from './Pages/Table/React_Table1_Page';
 import Flex1 from './Pages/Layout/Flex1';
+import SlatePlainText from './RichTextEditor/SlatePlainText';
 
 // development or production
 console.log(process.env.NODE_ENV);
@@ -125,6 +126,7 @@ function App(): ReactElement {
       <Route path="/topNav" component={TopNavBar} />
       <Route path="/links" component={Links} />
       <Route path="/tables" component={Tables} />
+      <Route path="/plain2" component={SlatePlainText} />
       <Route path="/plain" component={DraftPlainText} />
       <Route path="/rich" component={DraftRich} />
       <Route path="/todos" component={CounterContainer} />
